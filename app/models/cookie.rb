@@ -3,7 +3,14 @@ class Cookie < ActiveRecord::Base
   
   validates :storage, presence: true
 
-  def ready?
-    true
-  end
+  attr_accessor :is_baked
+
+  def ready?(cookie)
+    if !cookie.is_baked
+      CookiesBakeJob.delay.perform(cookie)
+    end
+    cookie.is_baked  
+
+  end 
+
 end

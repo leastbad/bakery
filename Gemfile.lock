@@ -69,8 +69,14 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    daemons (1.4.1)
     database_cleaner (1.7.0)
     debug_inspector (0.0.3)
+    delayed_job (4.1.9)
+      activesupport (>= 3.0, < 6.2)
+    delayed_job_active_record (4.1.6)
+      activerecord (>= 3.0, < 6.2)
+      delayed_job (>= 3.0, < 5)
     devise (4.6.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -297,7 +303,9 @@ DEPENDENCIES
   binding_of_caller
   capybara
   coffee-rails
+  daemons
   database_cleaner
+  delayed_job_active_record
   devise
   dotenv-rails
   factory_girl_rails
@@ -333,4 +341,4 @@ RUBY VERSION
    ruby 2.6.2p47
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
