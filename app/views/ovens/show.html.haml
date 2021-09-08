@@ -3,7 +3,7 @@
 .cookie-info
   Cookie in oven:
   - if @oven.cookie
-    1 cookie with #{@oven.cookie.fillings.lenght == 0 ? "no fillngs" : @oven.cookie.fillings }
+    1 cookie with #{@oven.cookie.fillings.length == 0 ? "no fillngs" : @oven.cookie.fillings }
     - if @oven.cookie.ready?
       (Your Cookie is Ready)
       = button_to "Retrieve Cookie", empty_oven_path, class: 'button tiny'

@@ -12,5 +12,5 @@
       %li
         = pluralize(cookies.count, "Cookie")
         with
-        = fillings || "no filling"
+        = fillings.length == 0 ? "no fillings" : fillings
     
