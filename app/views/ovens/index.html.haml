@@ -1,0 +1,5 @@
+%h3 My Ovens
+
+%ul.ovens
+  - @ovens.each do |oven|
+    %li= link_to oven.name, oven

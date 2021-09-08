@@ -1,0 +1,42 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/tanookie-bakery
+    docker:
+      - image: ruby:2.3.3
+        environment:
+          DATABASE_URL: postgresql://ubuntu@localhost/tanookie-bakery_test?sslmode=disable
+          RAILS_ENV: test
+          RACK_ENV: test
+      - image: postgres:9.6.2
+        environment:
+          POSTGRES_USER: ubuntu
+          POSTGRES_DB: tanookie-bakery_test
+          POSTGRES_PASSWORD: ""
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - tanookie-bakery-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          - tanookie-bakery-master-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: bundle install
+          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - save_cache:
+          key: tanookie-bakery-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - "~/tanookie-bakery/vendor/bundle"
+      - run:
+          name: set up database
+          command: bundle exec rake db:create db:schema:load --trace
+      - run:
+          name: results folder
+          command: mkdir /tmp/test-reports
+      - run:
+          name: rspec
+          command: bundle exec rspec --color --require rails_helper --format RspecJunitFormatter --out /tmp/test-reports/rspec.xml spec --format progress
+      - store_artifacts:
+          path: /tmp/artifacts
+          destination: build
+      - store_test_results:
+          path: /tmp/test-reports

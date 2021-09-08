@@ -1,0 +1,16 @@
+%h3 Your Bakery
+
+.bakery-nav
+  = link_to "View your ovens", ovens_path
+
+%br
+
+.store-inventory
+  Cookies for sale:
+  %ul
+    - current_user.stored_cookies.group_by(&:fillings).each_pair do |fillings, cookies|
+      %li
+        = pluralize(cookies.count, "Cookie")
+        with
+        = fillings || "no filling"
+    
