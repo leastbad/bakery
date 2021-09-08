@@ -11,6 +11,8 @@ module FlowspaceBakery
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
+    config.active_job.queue_adapter = :delayed_job
+    
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
