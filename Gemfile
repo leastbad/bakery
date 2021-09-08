@@ -81,3 +81,5 @@ group :test do
   gem 'rspec_junit_formatter'
   gem 'rails-controller-testing'
 end
+
+gem "cable_ready", "~> 4.0"

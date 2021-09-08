@@ -1,5 +1,7 @@
 {
   "name": "flowspace-bakery",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "cable_ready": "^5.0.0-pre3"
+  }
 }
