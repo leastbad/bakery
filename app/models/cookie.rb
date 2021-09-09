@@ -5,11 +5,11 @@ class Cookie < ActiveRecord::Base
 
   attr_accessor :is_baked
 
-  def ready?(cookie)
-    if !cookie.is_baked
-      CookiesBakeJob.delay.perform(cookie)
+  def ready?(oven)
+    if !oven.cookie.is_baked
+      CookiesBakeJob.delay.perform(oven)
     end
-    cookie.is_baked  
+    oven.cookie.is_baked  
 
   end 
 

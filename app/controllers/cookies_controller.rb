@@ -1,4 +1,5 @@
 class CookiesController < ApplicationController
+
   before_action :authenticate_user!
 
   def new
@@ -13,6 +14,7 @@ class CookiesController < ApplicationController
   def create
     @oven = current_user.ovens.find_by!(id: params[:oven_id])
     @cookie = @oven.create_cookie!(cookie_params)
+
     redirect_to oven_path(@oven)
   end
 

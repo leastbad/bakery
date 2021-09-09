@@ -1,0 +1,6 @@
+#cookie-status
+- if @oven.cookie.ready?(@oven)
+    (Your Cookie is Ready)
+    = button_to "Retrieve Cookie", empty_oven_path, class: 'button tiny'
+- else 
+    (Your cookie is baking)

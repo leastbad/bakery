@@ -4,11 +4,7 @@
   Cookie in oven:
   - if @oven.cookie
     1 cookie with #{@oven.cookie.fillings.length == 0 ? "no fillngs" : @oven.cookie.fillings }
-    - if @oven.cookie.ready?(@oven.cookie)
-      (Your Cookie is Ready)
-      = button_to "Retrieve Cookie", empty_oven_path, class: 'button tiny'
-    - else 
-      (Your cookie is baking)
+    = render 'cookie_status', :oven => @oven
   - else
     None
 
