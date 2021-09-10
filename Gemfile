@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.0'
+gem 'rails', '~> 5.2.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -82,4 +82,4 @@ group :test do
   gem 'rails-controller-testing'
 end
 
-gem "cable_ready", "~> 4.0"
+gem "cable_ready", "4.5"

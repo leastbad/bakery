@@ -7,7 +7,7 @@ consumer.subscriptions.create('TestChannel', {
   },
 ​
   received (data) {
-    console.log(data)
+    console.log("this is somethinggg", data)
     if(data.cableReady) CableReady.perform(data.operations)
   }
 })
