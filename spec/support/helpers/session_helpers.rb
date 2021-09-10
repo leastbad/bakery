@@ -16,7 +16,7 @@ module Features
     end
 
     def create_and_signin
-      user = FactoryGirl.create(:user, password: 'abcdefgh')
+      user = FactoryBot.create(:user, password: 'abcdefgh')
       signin user.email, 'abcdefgh'
       user
     end

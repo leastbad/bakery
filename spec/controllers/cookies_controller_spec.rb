@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe CookiesController do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
   let(:oven) { user.ovens.first }
 
   describe 'GET new' do
@@ -41,7 +41,7 @@ describe CookiesController do
       end
 
       context "when an invalid oven is supplied" do
-        let(:oven) { FactoryGirl.create(:oven) }
+        let(:oven) { FactoryBot.create(:oven) }
 
         it "is not successful" do
           expect {
@@ -99,7 +99,7 @@ describe CookiesController do
       end
 
       context "when an oven belonging to another user is supplied" do
-        let(:oven) { FactoryGirl.create(:oven) }
+        let(:oven) { FactoryBot.create(:oven) }
 
         it "is not successful" do
           expect {

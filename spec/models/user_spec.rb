@@ -14,7 +14,7 @@ describe User do
 
   describe "on creation" do
     it "assigns a new oven" do
-      user = FactoryGirl.build(:user)
+      user = FactoryBot.build(:user)
       expect(user.ovens.count).to eq(0)
       user.save!
       user.reload

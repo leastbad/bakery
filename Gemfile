@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 6.1.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -43,7 +43,7 @@ gem 'foundation-rails', '~> 5.3'
 gem 'haml-rails'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+gem 'pg', '~> 1.1'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -51,6 +51,8 @@ gem 'puma', '~> 3.7'
 gem 'delayed_job_active_record'
 
 gem 'daemons'
+
+gem 'factory_bot_rails'
 
 group :development do
   gem 'selenium-webdriver'
@@ -68,7 +70,7 @@ end
 
 group :development, :test do
   gem 'dotenv-rails'
-  gem 'factory_girl_rails'
+
   gem 'rspec-rails'
 end
 
@@ -82,4 +84,4 @@ group :test do
   gem 'rails-controller-testing'
 end
 
-gem "cable_ready", "4.5"
+gem "cable_ready", "5.0.0.pre3"

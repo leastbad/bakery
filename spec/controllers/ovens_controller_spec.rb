@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe OvensController do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
   describe 'GET index' do
     let(:the_request) { get :index }
@@ -32,7 +32,7 @@ describe OvensController do
   end
 
   describe 'GET show' do
-    let(:oven) { FactoryGirl.create(:oven, user: user) }
+    let(:oven) { FactoryBot.create(:oven, user: user) }
     let(:the_request) { get :show, params: { id: oven.id } }
 
     context "when not authenticated" do
@@ -58,7 +58,7 @@ describe OvensController do
       end
 
       context "when requesting someone else's oven" do
-        let(:oven) { FactoryGirl.create(:oven) }
+        let(:oven) { FactoryBot.create(:oven) }
 
         it "blocks access" do
           expect {
@@ -70,7 +70,7 @@ describe OvensController do
   end
 
   describe 'POST empty' do
-    let(:oven) { FactoryGirl.create(:oven, user: user) }
+    let(:oven) { FactoryBot.create(:oven, user: user) }
     let(:the_request) { post :empty, params: { id: oven.id } }
 
     context "when not authenticated" do
@@ -97,7 +97,7 @@ describe OvensController do
       end
 
       it "moves the oven's cookie to the user" do
-        cookie = FactoryGirl.create(:cookie, storage: oven)
+        cookie = FactoryBot.create(:cookie, storage: oven)
 
         the_request
 
@@ -106,7 +106,7 @@ describe OvensController do
       end
 
       context "when requesting someone else's oven" do
-        let(:oven) { FactoryGirl.create(:oven) }
+        let(:oven) { FactoryBot.create(:oven) }
 
         it "blocks access" do
           expect {
