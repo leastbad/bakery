@@ -2,7 +2,9 @@
   "name": "flowspace-bakery",
   "private": true,
   "dependencies": {
-    "actioncable": "^5.2.6",
+    "actioncable": "^5.2.6"
+  },
+  "devDependencies": {
     "cable_ready": "^5.0.0-pre3"
   }
 }

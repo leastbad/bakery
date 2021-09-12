@@ -7,7 +7,12 @@
   .row
     .small-8.columns
       = f.text_field :fillings
-
+  .row
+  .small-8.columns 
+    = f.label :quantity
+  .row
+    .small-8.columns 
+      = f.number_field :quantity
   .row
     .small-8.columns
       = f.submit 'Mix and bake', class: 'button'

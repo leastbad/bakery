@@ -3,7 +3,7 @@
 .cookie-info
 Cookie in oven:
 - if @oven.cookie
-    1 cookie with #{@oven.cookie.fillings.length == 0 ? "no fillngs" : @oven.cookie.fillings }
+    #{pluralize(@oven.cookie.quantity, "cookie")} with #{@oven.cookie.fillings.length == 0 ? "no fillngs" : @oven.cookie.fillings }
     = render 'cookie_status', locals: { oven: @oven }
 - else
     None

@@ -1,6 +1,6 @@
-class OvenChannel < ApplicationCable::Channel
+class TestChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "oven"
+    stream_from "test"
   end
 
   def receive(data)
