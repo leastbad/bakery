@@ -21,6 +21,6 @@ class CookiesController < ApplicationController
   private
 
   def cookie_params
-    params.require(:cookie).permit(:fillings)
+    params.require(:cookie).permit(:fillings, :quantity)
   end
 end

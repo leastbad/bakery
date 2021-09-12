@@ -4,7 +4,7 @@
 Cookie in oven:
 - if @oven.cookie
     #{pluralize(@oven.cookie.quantity, "cookie")} with #{@oven.cookie.fillings.length == 0 ? "no fillngs" : @oven.cookie.fillings }
-    = render 'cookie_status', locals: { oven: @oven }
+    = render partial: 'ovens/cookie_status', locals: { oven: @oven }
 - else
     None
 

@@ -2,9 +2,14 @@
   "name": "flowspace-bakery",
   "private": true,
   "dependencies": {
-    "actioncable": "^5.2.6"
+    "@rails/actioncable": "^6.1.2-1",
+    "@rails/webpacker": "5.4.2",
+    "cable_ready": "^5.0.0-pre3",
+    "stimulus": "^2.0.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
   },
   "devDependencies": {
-    "cable_ready": "^5.0.0-pre3"
+    "webpack-dev-server": "^3.11.2"
   }
 }

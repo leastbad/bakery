@@ -5,6 +5,7 @@ class ApplicationJob < ActiveJob::Base
   # Most jobs are safe to ignore if the underlying records are no longer available
   # discard_on ActiveJob::DeserializationError
 
-  # include CableReady::Broadcaster
+  include CableReady::Broadcaster
   delegate :render, to: :ApplicationController
+  include Rails.application.routes.url_helpers
 end

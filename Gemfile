@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
-ruby '2.6.2'
+ruby '2.7.3'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 6.1.0'
+gem 'rails', '~> 6.1.4.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -29,7 +29,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 3.0'
+gem "redis", ">= 4.2.5"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -46,7 +46,7 @@ gem 'haml-rails'
 gem 'pg', '~> 1.1'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 5.2'
 
 gem 'delayed_job_active_record'
 
@@ -57,15 +57,16 @@ gem 'factory_bot_rails'
 group :development do
   gem 'selenium-webdriver'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  # gem 'spring'
+  # gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
   gem 'html2haml'
-  gem 'spring-commands-rspec'
+  # gem 'spring-commands-rspec'
+  gem "ruby_jard"
 end
 
 group :development, :test do
@@ -85,3 +86,5 @@ group :test do
 end
 
 gem "cable_ready", "5.0.0.pre3"
+gem "bootsnap", ">= 1.4.4", require: false
+gem "webpacker", "~> 5.4.2"

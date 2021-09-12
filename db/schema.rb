@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_11_030819) do
+ActiveRecord::Schema.define(version: 2021_09_12_114050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2021_09_11_030819) do
     t.datetime "updated_at", null: false
     t.integer "storage_id"
     t.string "storage_type"
-    t.boolean "is_baked"
     t.integer "quantity"
+    t.boolean "is_baked", default: false
   end
 
   create_table "delayed_jobs", force: :cascade do |t|

@@ -1,14 +1,11 @@
 class Cookie < ActiveRecord::Base
   belongs_to :storage, polymorphic: :true
-  
   validates :storage, presence: true
+  after_commit :bake_job, on: :create
+  
+  private
 
-  def ready?(cookie)
-    if !cookie.is_baked
-      CookiesBakeJob.delay.perform(cookie)
-    end
-    cookie.is_baked  
-
-  end 
-
+  def bake_job
+    CookiesBakeJob.set(wait: 5.seconds).perform_later(self)
+  end
 end

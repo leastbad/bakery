@@ -1,6 +1,7 @@
-#cookie-status
-- if @oven.cookie.ready?(@oven.cookie)
-  (Your Cookie is Ready)
-  = button_to "Retrieve Cookie", empty_oven_path, class: 'button tiny'
-- else 
-  (Your cookie is baking) 
+#cookie-status{"data-controller": "csrf"}
+  - if oven.cookie.is_baked?
+    (Your Cookie is Ready)
+    %br
+    = button_to "Retrieve Cookie", empty_oven_path(oven), class: 'button tiny'
+  - else 
+    (Your cookie is baking) 
